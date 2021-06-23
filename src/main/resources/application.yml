@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    hikari:
+      jdbc-url: jdbc:oracle:thin:@10.10.18.12:1521:orcl
+      pool-name: hikari-cp
+      maximum-pool-size: 10
+      minimum-idle: 2
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+      username: skt
+      password: skt
+
+
+  thymeleaf:
+    cache: false
+    enabled: true
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    suffix: .html
+    check-template-location: true
+    mode: LEGACYHTML5
+
+---
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    lazy-loading-enabled: true
+    aggressive-lazy-loading: false
+    map-underscore-to-camel-case: true
+---

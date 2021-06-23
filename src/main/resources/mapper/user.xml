@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+<mapper namespace="com.db.table.domain.UserDTO">
+    <select id="selectUserList" resultType="com.db.table.domain.UserDTO">
+        SELECT *
+            FROM (
+                SELECT USERID AS id
+                        , USERNAME AS nick
+                        , REALNAME AS name
+                    FROM KMS_CNF_USER_TB
+            )
+            WHERE
+                <![CDATA[
+                    ROWNUM < 6
+                ]]>
+    </select>
+</mapper>
